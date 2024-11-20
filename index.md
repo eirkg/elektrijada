@@ -3,10 +3,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Електријада КГ</title>
-  <link rel="apple-touch-icon" sizes="180x180" href="/.slike/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/.slike/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/.slike/favicon-16x16.png">
-  <link rel="manifest" href="/.slike/site.webmanifest">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://raw.githubusercontent.com/eirkg/elektrijada/refs/heads/main/.slike/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://raw.githubusercontent.com/eirkg/elektrijada/refs/heads/main/.slike/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://raw.githubusercontent.com/eirkg/elektrijada/refs/heads/main/.slike/favicon-16x16.png">
+  <link rel="manifest" href="https://raw.githubusercontent.com/eirkg/elektrijada/refs/heads/main/.slike/site.webmanifest">
+
+    <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Електријада КГ">
+  <meta property="og:image" content="https://raw.githubusercontent.com/eirkg/elektrijada/refs/heads/main/.slike/android-chrome-512x512.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Електријада КГ">
   <!-- Add favicon link -->
   <link rel="icon" href="{{ site.favicon | default: '/.slike/favicon.ico' }}" type="image/x-icon">
 </head>
@@ -25,12 +31,12 @@
 
 <table style="width: 400px; text-align: center; border: none;">
   <tr>
-    <td style="padding-right:60px;padding-top:10px">
+    <td style="padding-right:20px;padding-top:10px">
       <img src="https://raw.githubusercontent.com/eirkg/elektrijada/refs/heads/main/.slike/koordinator_nauka.png" width="150" />
       <br />
       <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=lazar@uni.kg.ac.rs">Лазар Илић</a>
     </td>
-    <td style="padding-top: 10px;">
+    <td style="padding-left:20px;padding-top: 10px;">
       <img src="https://raw.githubusercontent.com/eirkg/elektrijada/refs/heads/main/.slike/koordinator_sport.png" width="150" />
       <br />
       <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=radosavljevicdanilo333@gmail.com">Данило Радосављевић</a>
