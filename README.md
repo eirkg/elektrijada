@@ -10,12 +10,12 @@
 * (Не)Званични координатори за науку и спорт: 
 
 <p align="center">
-<img src="https://github.com/eirkg/elektrijada/blob/main/.slike/koordinator_nauka.png" width="150" style="margin-right:25"/>
-<img src="https://github.com/eirkg/elektrijada/blob/main/.slike/koordinator_sport.png" width="150" />
+<img src="https://raw.githubusercontent.com/eirkg/elektrijada/refs/heads/main/.slike/koordinator_nauka.png" width="150" style="margin-right:25"/>
+<img src="https://raw.githubusercontent.com/eirkg/elektrijada/refs/heads/main/.slike/koordinator_sport.png"  width="150" />
 </p>
 
 <p style="text-align: center;">
-  <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=lazar@uni.kg.ac.rs" style="margin-right: 40px;">Лазар Илић</a>
+  <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=lazar@uni.kg.ac.rs" style="margin-right: 4vw">Лазар Илић</a>
   <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=radosavljevicdanilo333@gmail.com">Данило Радосављевић</a>
 </p>
 
