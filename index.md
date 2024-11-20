@@ -1,11 +1,25 @@
-# Обавештења 2024-2025
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Електријада КГ</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/.slike/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/.slike/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/.slike/favicon-16x16.png">
+  <link rel="manifest" href="/.slike/site.webmanifest">
+  <!-- Add favicon link -->
+  <link rel="icon" href="{{ site.favicon | default: '/.slike/favicon.ico' }}" type="image/x-icon">
+</head>
+
+
+## Обавештења 2024-2025
 
 * Званичан сајт [електријаде](https://www.elektrijada.net/).
-* Нема за сад ништа јбг
+* Нема за сад ништа јбг.
 
 
 
-# Одлазак 2024
+## Одлазак 2024
 
 * (Не)Званични координатори за науку и спорт:
 
@@ -29,7 +43,7 @@
 
 ### Остварени успеси
 
- * Освојена бронзана медаља из научне дисциплине аналогна електроника
+ * Освојена бронзана медаља из научне дисциплине аналогна електроника.
 
 
 ### Топ моменти
