@@ -10,12 +10,13 @@
 * (Не)Званични координатори за науку и спорт: 
 
 <p align="center">
-<img src="./.slike/koordinator_nauka.png" width="150" style="margin-right:25"/>
-<img src="./.slike/koordinator_sport.png" width="150" />
+<img src="https://github.com/eirkg/elektrijada/blob/main/.slike/koordinator_nauka.png" width="150" style="margin-right:25"/>
+<img src="https://github.com/eirkg/elektrijada/blob/main/.slike/koordinator_sport.png" width="150" />
 </p>
 
-<p align="center">
-&nbsp &nbsp &nbsp &nbsp &nbsp <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=lazar@uni.kg.ac.rs"> Лазар Илић </a> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=radosavljevicdanilo333@gmail.com">Данило Радосављевић</a>
+<p style="text-align: center;">
+  <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=lazar@uni.kg.ac.rs" style="margin-right: 40px;">Лазар Илић</a>
+  <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=radosavljevicdanilo333@gmail.com">Данило Радосављевић</a>
 </p>
 
 
@@ -30,7 +31,7 @@
 ### Топ моменти
 
 
-<iframe width="1920" height="798" src="https://www.youtube.com/embed/6bFPemZ9j1c" title="Elektrijada Official Aftermovie 2024" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="710" height="400" src="https://www.youtube.com/embed/6bFPemZ9j1c" title="Elektrijada Official Aftermovie 2024" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 **Ћирко**
 
