@@ -3,3 +3,4 @@ description: (Не)Званичан сајт организације одлас
 show_downloads: false
 google_analytics:
 theme: jekyll-theme-hacker
+favicon: /.slike/favicon.ico  # Add this line to specify the favicon file
