@@ -11,12 +11,12 @@
 
 <table style="width: 400px; text-align: center; border: none;">
   <tr>
-    <td style="padding: 10px;">
+    <td style="padding-right:60px;padding-top:10px">
       <img src="https://raw.githubusercontent.com/eirkg/elektrijada/refs/heads/main/.slike/koordinator_nauka.png" width="150" />
       <br />
       <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=lazar@uni.kg.ac.rs">Лазар Илић</a>
     </td>
-    <td style="padding: 10px;">
+    <td style="padding-top: 10px;">
       <img src="https://raw.githubusercontent.com/eirkg/elektrijada/refs/heads/main/.slike/koordinator_sport.png" width="150" />
       <br />
       <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=radosavljevicdanilo333@gmail.com">Данило Радосављевић</a>
