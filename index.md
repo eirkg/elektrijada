@@ -71,11 +71,9 @@
   </iframe>
 </div>
 
-
 <div id="gallery-container" style="position: relative; width: 100%; height: 100%; overflow: hidden; background: #000;">
   <div id="gallery" style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; width: 100%; height: 100%; box-sizing: border-box;"></div>
 </div>
-
 
 
 <!-- Fullscreen Overlay Modal -->
@@ -121,7 +119,7 @@
           const img = document.createElement('img');
           img.src = `https://lh3.googleusercontent.com/d/${file.id}`;
           img.alt = file.name;
-          img.style = "flex: 1 1 calc(33% - 20px); max-width: 100%; height: auto; cursor: pointer; object-fit: cover;";  // Use flex-grow and calc to divide the space evenly
+          img.style = "flex: 1 1 calc(33% - 20px); max-width: 100%; height: auto; cursor: pointer; object-fit: cover; min-width: 200px;";  // Added min-width to keep images larger
 
           // Add click event to open image in fullscreen
           img.onclick = function() {
