@@ -74,7 +74,7 @@
 
 <script>
   const folderId = '1_rQYqr1xVrXL_D_ZgkSiEhKMn1MdrPRu';
-  const API_KEY = "{{API_KEY}}";
+  const API_KEY = 'AIzaSyAACBIwxSStYUrldT6_8Rxjpcjfj7t_UYE';
 
   fetch(`https://www.googleapis.com/drive/v3/files?q='${folderId}'+in+parents&key=${API_KEY}&fields=files(id,name,mimeType)`)
     .then(response => response.json())
