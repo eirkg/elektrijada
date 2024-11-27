@@ -121,7 +121,7 @@
 
           // Add click event to open image in fullscreen
           img.onclick = function() {
-            openFullscreenImage(`https://drive.google.com/uc?id=${file.id}&export=view`);
+            openFullscreenImage(`https://lh3.googleusercontent.com/d/${file.id}`);
           };
 
           gallery.appendChild(img);
