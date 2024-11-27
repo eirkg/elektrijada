@@ -70,7 +70,7 @@
 </div>
 
 
-![Example Image](https://drive.google.com/uc?id=1xXoNTV-f1AIzkyCkU5TK7de8_KdmTpIO)
+![Example Image](https://drive.google.com/file/d/1xXoNTV-f1AIzkyCkU5TK7de8_KdmTpIO/view?usp=sharing)
 
 
 <div id="gallery" style="display: flex; flex-wrap: wrap;"></div>
