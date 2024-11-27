@@ -72,6 +72,7 @@
 </div>
 
 
+
 <div id="gallery" style="display: flex; flex-wrap: wrap;"></div>
 
 <script>
@@ -97,7 +98,15 @@
           img.src = `https://lh3.googleusercontent.com/d/${file.id}`;
           img.alt = file.name;
           img.style = "width: 150px; height: auto; margin: 5px;";
-          gallery.appendChild(img);
+          
+          // Create a link to the full-size image
+          const link = document.createElement('a');
+          link.href = `https://drive.google.com/uc?id=${file.id}&export=view`;
+          link.target = '_blank'; // Open in new tab for fullscreen
+          
+          // Append the image to the link
+          link.appendChild(img);
+          gallery.appendChild(link);
         }
       });
     })
