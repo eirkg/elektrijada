@@ -71,6 +71,8 @@
   </iframe>
 </div>
 
+
+
 <div id="gallery-container" style="position: relative; width: 100%; height: 100%; overflow: hidden; background: #000;">
   <div id="gallery" style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; width: 100%; height: 100%; box-sizing: border-box;"></div>
 </div>
@@ -81,7 +83,6 @@
   <span id="closeModal" style="color: white; font-size: 30px; position: absolute; top: 20px; right: 20px; cursor: pointer; z-index: 2000;">&times;</span>
   <img id="fullscreenImage" src="" alt="" style="width: 100%; height: auto; margin: 0; display: block; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 1000;">
 </div>
-
 
 
 <script>
@@ -134,3 +135,35 @@
     .catch(error => console.error('Error fetching files:', error));
 </script>
 
+
+<style>
+  /* Default styling for larger screens (like tablets and desktops) */
+  #gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  #gallery img {
+    flex: 1 1 calc(33% - 20px); /* Three columns layout */
+    max-width: 100%;
+    height: auto;
+    cursor: pointer;
+    object-fit: cover;
+    min-width: 200px;
+  }
+
+  /* Mobile responsiveness */
+  @media screen and (max-width: 767px) {
+    #gallery img {
+      flex: 1 1 calc(50% - 20px); /* Two columns layout on small screens */
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    #gallery img {
+      flex: 1 1 100%; /* One column layout on very small screens */
+    }
+  }
+</style>
