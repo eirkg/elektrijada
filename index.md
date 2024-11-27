@@ -92,7 +92,7 @@
           gallery.appendChild(iframe);
         } else if (file.mimeType.startsWith('image/')) {
           const img = document.createElement('img');
-          img.src = `https://drive.google.com/uc?id=${file.id}&export=view`;
+          img.src = `https://cors-anywhere.herokuapp.com/https://drive.google.com/uc?id=${file.id}`;
           img.alt = file.name;
           img.style = "width: 150px; height: auto; margin: 5px;";
           gallery.appendChild(img);
