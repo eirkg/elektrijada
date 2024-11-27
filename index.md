@@ -1,6 +1,6 @@
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https://drive.google.com;">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Електријада КГ</title>
   <link rel="apple-touch-icon" sizes="180x180" href="https://raw.githubusercontent.com/eirkg/elektrijada/refs/heads/main/.slike/apple-touch-icon.png">
@@ -13,7 +13,7 @@
   <meta property="og:image" content="https://raw.githubusercontent.com/eirkg/elektrijada/refs/heads/main/.slike/android-chrome-512x512.png">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Електријада КГ">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https://drive.google.com;">
+
     
   <!-- Add favicon link -->
   <link rel="icon" href="{{ site.favicon | default: '/.slike/favicon.ico' }}" type="image/x-icon">
