@@ -72,7 +72,9 @@
 </div>
 
 
-<div id="gallery" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; width: 100%;"></div>
+<div id="gallery-container" style="position: relative; width: 100%; height: 100%; overflow: hidden; background: #000;">
+  <div id="gallery" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; width: 100%; height: 100%; padding: 10px; box-sizing: border-box;"></div>
+</div>
 
 <!-- Fullscreen Overlay Modal -->
 <div id="fullscreenModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.8); z-index: 1000;">
@@ -116,7 +118,7 @@
           const img = document.createElement('img');
           img.src = `https://lh3.googleusercontent.com/d/${file.id}`;
           img.alt = file.name;
-          img.style = "max-width: 100%; height: auto; max-height: 200px; margin: 5px; cursor: pointer; object-fit: cover;";  // Ensures image scales nicely without distortion
+          img.style = "max-width: 100%; height: auto; margin: 5px; cursor: pointer; object-fit: cover;";  // Ensures image scales nicely without distortion
 
           // Add click event to open image in fullscreen
           img.onclick = function() {
@@ -130,3 +132,4 @@
     })
     .catch(error => console.error('Error fetching files:', error));
 </script>
+
