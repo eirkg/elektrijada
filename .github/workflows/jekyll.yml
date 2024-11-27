@@ -8,6 +8,11 @@ on:
     branches:
       - main
 
+permissions:
+  contents: read      # Allows read access to the repository's contents
+  metadata: read      # Allows read access to repository metadata
+  pages: write        # Grants permission to write to GitHub Pages
+
 jobs:
   build:
     runs-on: ubuntu-22.04
