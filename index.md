@@ -72,8 +72,14 @@
 </div>
 
 
-
 <div id="gallery" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; width: 100%;"></div>
+
+<!-- Fullscreen Overlay Modal -->
+<div id="fullscreenModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.8); z-index: 1000;">
+  <span id="closeModal" style="color: white; font-size: 30px; position: absolute; top: 20px; right: 20px; cursor: pointer; z-index: 2000;">&times;</span>
+  <img id="fullscreenImage" src="" alt="" style="width: 100%; height: auto; margin: 0; display: block; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 1000;">
+</div>
+
 
 <script>
   const folderId = '1_rQYqr1xVrXL_D_ZgkSiEhKMn1MdrPRu';
@@ -124,9 +130,3 @@
     })
     .catch(error => console.error('Error fetching files:', error));
 </script>
-
-<!-- Fullscreen Overlay Modal -->
-<div id="fullscreenModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.8); z-index: 1000;">
-  <span id="closeModal" style="color: white; font-size: 30px; position: absolute; top: 20px; right: 20px; cursor: pointer; z-index: 2000;">&times;</span>
-  <img id="fullscreenImage" src="" alt="" style="width: 100%; height: auto; margin: 0; display: block; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 1000;">
-</div>
