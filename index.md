@@ -85,6 +85,7 @@
 </div>
 
 
+
 <script>
   const folderId = '1_rQYqr1xVrXL_D_ZgkSiEhKMn1MdrPRu';
   const API_KEY = '{{API_KEY}}';
@@ -120,7 +121,7 @@
           const img = document.createElement('img');
           img.src = `https://lh3.googleusercontent.com/d/${file.id}`;
           img.alt = file.name;
-          img.style = "flex: 1 1 calc(33% - 20px); max-width: 100%; height: auto; cursor: pointer; object-fit: cover; min-width: 200px;";  // Added min-width to keep images larger
+          img.style = "flex: 1 1 calc(33% - 20px); max-width: 100%; height: auto; cursor: pointer; object-fit: cover; min-width: 200px;";  // Keep a minimum width for images
 
           // Add click event to open image in fullscreen
           img.onclick = function() {
@@ -158,12 +159,15 @@
   @media screen and (max-width: 767px) {
     #gallery img {
       flex: 1 1 calc(50% - 20px); /* Two columns layout on small screens */
+      min-width: 160px; /* Ensure the images are still large enough but not too wide */
     }
   }
 
   @media screen and (max-width: 480px) {
     #gallery img {
-      flex: 1 1 100%; /* One column layout on very small screens */
+      flex: 1 1 calc(100% - 20px); /* One column layout on very small screens */
+      min-width: 150px; /* Adjust for smaller screens */
     }
   }
 </style>
+
