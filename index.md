@@ -17,7 +17,6 @@
   <link rel="icon" href="{{ site.favicon | default: '/.slike/favicon.ico' }}" type="image/x-icon">
 </head>
 
-
 ## Обавештења 2024-2025
 
 * Званичан сајт [електријаде](https://www.elektrijada.net/).
@@ -69,7 +68,37 @@
       allowfullscreen>
   </iframe>
 </div>
-**Ћирко**
 
-Галерија соон
+
+<div id="gallery" style="display: flex; flex-wrap: wrap;"></div>
+
+<script>
+  const folderId = '1_rQYqr1xVrXL_D_ZgkSiEhKMn1MdrPRu';
+  const API_KEY = "{{API_KEY}}";
+
+  fetch(`https://www.googleapis.com/drive/v3/files?q='${folderId}'+in+parents&key=${API_KEY}&fields=files(id,name,mimeType)`)
+    .then(response => response.json())
+    .then(data => {
+      const gallery = document.getElementById('gallery');
+      data.files.forEach(file => {
+        if (file.mimeType.startsWith('video/')) {
+          const iframe = document.createElement('iframe');
+          iframe.src = `https://drive.google.com/file/d/${file.id}/preview`;
+          iframe.width = "300";
+          iframe.height = "200";
+          iframe.style = "margin: 5px; border: none;";
+          iframe.allow = "autoplay; encrypted-media";
+          iframe.allowFullscreen = true;
+          gallery.appendChild(iframe);
+        } else if (file.mimeType.startsWith('image/')) {
+          const img = document.createElement('img');
+          img.src = `https://drive.google.com/uc?id=${file.id}`;
+          img.alt = file.name;
+          img.style = "width: 150px; height: auto; margin: 5px;";
+          gallery.appendChild(img);
+        }
+      });
+    })
+    .catch(error => console.error('Error fetching files:', error));
+</script>
 

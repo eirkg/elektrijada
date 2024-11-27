@@ -20,6 +20,12 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
+
+      - name: Замена placeholder-а API кључем
+        run: |
+          sed -i 's/{{API_KEY}}/${{ secrets.GOOGLE_API_KEY }}/g' index.md
+  
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
