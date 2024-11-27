@@ -17,6 +17,15 @@
     
   <!-- Add favicon link -->
   <link rel="icon" href="{{ site.favicon | default: '/.slike/favicon.ico' }}" type="image/x-icon">
+
+  <!-- Slick CSS -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+
+  <!-- Slick JS -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+
 </head>
 
 ## Обавештења 2024-2025
@@ -73,24 +82,22 @@
 
 
 
-<div id="gallery-container" style="position: relative; width: 100%; height: 100%; overflow: hidden; background: #000;">
-  <div id="gallery" style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; width: 100%; height: 100%; box-sizing: border-box;"></div>
+<!-- Галерија која слајдује -->
+<div id="gallery-container" style="width: 100%; height: 100%; overflow: hidden; background: #000;">
+  <div id="image-slider" class="slick-slider" style="width: 100%; margin: 0 auto;"></div>
 </div>
-
 
 <!-- Fullscreen Overlay Modal -->
 <div id="fullscreenModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.8); z-index: 1000;">
-  <span id="closeModal" style="color: white; font-size: 30px; position: absolute; top: 20px; right: 20px; cursor: pointer; z-index: 2000;">&times;</span>
-  <img id="fullscreenImage" src="" alt="" style="width: 100%; height: auto; margin: 0; display: block; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 1000;">
+  <span id="closeModal" style="color: white; font-size: 30px; position: absolute; top: 20px; right: 20px; cursor: pointer;">&times;</span>
+  <img id="fullscreenImage" src="" alt="" style="width: 100%; height: auto; margin: 0; display: block; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
 </div>
-
-
 
 <script>
   const folderId = '1_rQYqr1xVrXL_D_ZgkSiEhKMn1MdrPRu';
   const API_KEY = '{{API_KEY}}';
 
-  // Open the image in fullscreen overlay
+  // Отварање слике у fullscreen модалу
   function openFullscreenImage(imageSrc) {
     const modal = document.getElementById('fullscreenModal');
     const fullscreenImage = document.getElementById('fullscreenImage');
@@ -98,76 +105,64 @@
     fullscreenImage.src = imageSrc;
   }
 
-  // Close the fullscreen overlay
+  // Затварање fullscreen модала
   document.getElementById('closeModal').onclick = function() {
     document.getElementById('fullscreenModal').style.display = 'none';
   };
 
+  // Fetch слика са Google Drive-а
   fetch(`https://www.googleapis.com/drive/v3/files?q='${folderId}'+in+parents&key=${API_KEY}&fields=files(id,name,mimeType)`)
     .then(response => response.json())
     .then(data => {
-      const gallery = document.getElementById('gallery');
+      const gallery = document.getElementById('image-slider');
       data.files.forEach(file => {
-        if (file.mimeType.startsWith('video/')) {
-          const iframe = document.createElement('iframe');
-          iframe.src = `https://drive.google.com/file/d/${file.id}/preview`;
-          iframe.width = "300";
-          iframe.height = "200";
-          iframe.style = "margin: 5px; border: none;";
-          iframe.allow = "autoplay; encrypted-media";
-          iframe.allowFullscreen = true;
-          gallery.appendChild(iframe);
-        } else if (file.mimeType.startsWith('image/')) {
+        if (file.mimeType.startsWith('image/')) {
           const img = document.createElement('img');
           img.src = `https://lh3.googleusercontent.com/d/${file.id}`;
           img.alt = file.name;
-          img.style = "flex: 1 1 calc(33% - 20px); max-width: 100%; height: auto; cursor: pointer; object-fit: cover; min-width: 200px;";  // Keep a minimum width for images
+          img.style = "width: 100%; height: auto; object-fit: cover; cursor: pointer;";
 
-          // Add click event to open image in fullscreen
+          // Додавање слике у слајдер
           img.onclick = function() {
-            const imageSrc = `https://lh3.googleusercontent.com/d/${file.id}`;
-            openFullscreenImage(imageSrc);
+            openFullscreenImage(`https://lh3.googleusercontent.com/d/${file.id}`);
           };
 
           gallery.appendChild(img);
         }
       });
+
+      // Покретање Slick слајдера
+      $(document).ready(function(){
+        $('#image-slider').slick({
+          infinite: true,  // Бесконачно клизање
+          slidesToShow: 1, // Покажи једну слику по слајду
+          slidesToScroll: 1, // Клизни један по један
+          autoplay: true,  // Аутоматско репродуковање
+          autoplaySpeed: 2000,  // Брзина аутоматског клизања (у милисекундама)
+          dots: true, // Додавање тачака за навигацију
+          arrows: true, // Додавање стрелица за навигацију
+        });
+      });
     })
     .catch(error => console.error('Error fetching files:', error));
 </script>
 
-
 <style>
-  /* Default styling for larger screens (like tablets and desktops) */
-  #gallery {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 10px;
+  /* Стиловање слајдера */
+  .slick-slider {
+    width: 100%;
+    margin: 0 auto;
   }
 
-  #gallery img {
-    flex: 1 1 calc(33% - 20px); /* Three columns layout */
-    max-width: 100%;
+  .slick-slide img {
+    width: 100%;
     height: auto;
-    cursor: pointer;
+  }
+
+  /* Стиловање за fullscreen слике */
+  #fullscreenImage {
+    width: 100%;
+    height: auto;
     object-fit: cover;
-    min-width: 200px;
-  }
-
-  /* Mobile responsiveness */
-  @media screen and (max-width: 767px) {
-    #gallery img {
-      flex: 1 1 calc(50% - 20px); /* Two columns layout on small screens */
-      min-width: 160px; /* Ensure the images are still large enough but not too wide */
-    }
-  }
-
-  @media screen and (max-width: 480px) {
-    #gallery img {
-      flex: 1 1 calc(100% - 20px); /* One column layout on very small screens */
-      min-width: 150px; /* Adjust for smaller screens */
-    }
   }
 </style>
-
