@@ -73,14 +73,17 @@
 
 
 <div id="gallery-container" style="position: relative; width: 100%; height: 100%; overflow: hidden; background: #000;">
-  <div id="gallery" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; width: 100%; height: 100%; padding: 10px; box-sizing: border-box;"></div>
+  <div id="gallery" style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; width: 100%; height: 100%; box-sizing: border-box;"></div>
 </div>
+
+
 
 <!-- Fullscreen Overlay Modal -->
 <div id="fullscreenModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.8); z-index: 1000;">
   <span id="closeModal" style="color: white; font-size: 30px; position: absolute; top: 20px; right: 20px; cursor: pointer; z-index: 2000;">&times;</span>
   <img id="fullscreenImage" src="" alt="" style="width: 100%; height: auto; margin: 0; display: block; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 1000;">
 </div>
+
 
 
 <script>
@@ -118,7 +121,7 @@
           const img = document.createElement('img');
           img.src = `https://lh3.googleusercontent.com/d/${file.id}`;
           img.alt = file.name;
-          img.style = "max-width: 100%; height: auto; margin: 5px; cursor: pointer; object-fit: cover;";  // Ensures image scales nicely without distortion
+          img.style = "flex: 1 1 calc(33% - 20px); max-width: 100%; height: auto; cursor: pointer; object-fit: cover;";  // Use flex-grow and calc to divide the space evenly
 
           // Add click event to open image in fullscreen
           img.onclick = function() {
