@@ -75,7 +75,6 @@
 
 <div id="gallery" style="display: flex; flex-wrap: wrap;"></div>
 
-
 <!-- Fullscreen Overlay Modal -->
 <div id="fullscreenModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.8); z-index: 1000;">
   <span id="closeModal" style="color: white; font-size: 30px; position: absolute; top: 20px; right: 20px; cursor: pointer;">&times;</span>
@@ -115,13 +114,15 @@
           gallery.appendChild(iframe);
         } else if (file.mimeType.startsWith('image/')) {
           const img = document.createElement('img');
+          // Image preview link
           img.src = `https://lh3.googleusercontent.com/d/${file.id}`;
           img.alt = file.name;
           img.style = "width: 150px; height: auto; margin: 5px; cursor: pointer;";  // cursor pointer for clickable images
 
           // Add click event to open image in fullscreen
           img.onclick = function() {
-            openFullscreenImage(`https://lh3.googleusercontent.com/d/${file.id}`);
+            const imageSrc = `https://lh3.googleusercontent.com/d/${file.id}`;
+            openFullscreenImage(imageSrc);
           };
 
           gallery.appendChild(img);
