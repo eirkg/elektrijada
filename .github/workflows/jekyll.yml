@@ -7,11 +7,8 @@ on:
   pull_request:
     branches:
       - main
-
 permissions:
-  contents: read      # Allows read access to the repository's contents
-  metadata: read      # Allows read access to repository metadata
-  pages: write        # Grants permission to write to GitHub Pages
+  id-token: write  # Required permission for deploying to GitHub Pages
 
 jobs:
   build:
