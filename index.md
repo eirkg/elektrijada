@@ -75,7 +75,10 @@
 
 <div id="gallery" style="display: flex; flex-wrap: wrap;"></div>
 
-<iframe src="https://drive.google.com/embeddedfolderview?id=1_rQYqr1xVrXL_D_ZgkSiEhKMn1MdrPRu#grid" 
-        style="width:100%; height:600px; border:0;"></iframe>
+<script>
+  const API_KEY = '{{API_KEY}}';
+</script>
+
+<iframe src='https://googledriveembedder.collegefam.com/?key=${API_KEY}&folderid=1_rQYqr1xVrXL_D_ZgkSiEhKMn1MdrPRu' style="border:none;" width="100%"></iframe>
 
 
