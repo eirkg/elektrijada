@@ -77,8 +77,11 @@
 
 <!-- Fullscreen Overlay Modal -->
 <div id="fullscreenModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.8); z-index: 1000;">
-  <span id="closeModal" style="color: white; font-size: 30px; position: absolute; top: 20px; right: 20px; cursor: pointer;">&times;</span>
-  <img id="fullscreenImage" src="" alt="" style="width: 100%; height: auto; margin: 0; display: block; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+  <!-- Close Button -->
+  <span id="closeModal" style="color: white; font-size: 30px; position: absolute; top: 20px; right: 20px; cursor: pointer; z-index: 2000;">&times;</span>
+  
+  <!-- Fullscreen Image -->
+  <img id="fullscreenImage" src="" alt="" style="width: 100%; height: auto; margin: 0; display: block; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 1000;">
 </div>
 
 <script>
@@ -114,7 +117,6 @@
           gallery.appendChild(iframe);
         } else if (file.mimeType.startsWith('image/')) {
           const img = document.createElement('img');
-          // Image preview link
           img.src = `https://lh3.googleusercontent.com/d/${file.id}`;
           img.alt = file.name;
           img.style = "width: 150px; height: auto; margin: 5px; cursor: pointer;";  // cursor pointer for clickable images
