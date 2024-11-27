@@ -13,6 +13,8 @@
   <meta property="og:image" content="https://raw.githubusercontent.com/eirkg/elektrijada/refs/heads/main/.slike/android-chrome-512x512.png">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Електријада КГ">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https://drive.google.com;">
+    
   <!-- Add favicon link -->
   <link rel="icon" href="{{ site.favicon | default: '/.slike/favicon.ico' }}" type="image/x-icon">
 </head>
@@ -70,9 +72,6 @@
 </div>
 
 
-![Example Image](https://drive.google.com/file/d/1xXoNTV-f1AIzkyCkU5TK7de8_KdmTpIO/view?usp=sharing)
-
-
 <div id="gallery" style="display: flex; flex-wrap: wrap;"></div>
 
 <script>
@@ -96,6 +95,7 @@
         } else if (file.mimeType.startsWith('image/')) {
           const img = document.createElement('img');
           img.src = `https://drive.google.com/uc?export=view&id=${file.id}`;
+
           img.alt = file.name;
           img.style = "width: 150px; height: auto; margin: 5px;";
           gallery.appendChild(img);
