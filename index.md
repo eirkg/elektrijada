@@ -73,16 +73,7 @@
 
 
 
-<div id="gallery" style="display: flex; flex-wrap: wrap;"></div>
-
-<!-- Fullscreen Overlay Modal -->
-<div id="fullscreenModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.8); z-index: 1000;">
-  <!-- Close Button -->
-  <span id="closeModal" style="color: white; font-size: 30px; position: absolute; top: 20px; right: 20px; cursor: pointer; z-index: 2000;">&times;</span>
-  
-  <!-- Fullscreen Image -->
-  <img id="fullscreenImage" src="" alt="" style="width: 100%; height: auto; margin: 0; display: block; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 1000;">
-</div>
+<div id="gallery" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; width: 100%;"></div>
 
 <script>
   const folderId = '1_rQYqr1xVrXL_D_ZgkSiEhKMn1MdrPRu';
@@ -119,7 +110,7 @@
           const img = document.createElement('img');
           img.src = `https://lh3.googleusercontent.com/d/${file.id}`;
           img.alt = file.name;
-          img.style = "width: 150px; height: auto; margin: 5px; cursor: pointer;";  // cursor pointer for clickable images
+          img.style = "max-width: 100%; height: auto; max-height: 200px; margin: 5px; cursor: pointer; object-fit: cover;";  // Ensures image scales nicely without distortion
 
           // Add click event to open image in fullscreen
           img.onclick = function() {
@@ -133,3 +124,9 @@
     })
     .catch(error => console.error('Error fetching files:', error));
 </script>
+
+<!-- Fullscreen Overlay Modal -->
+<div id="fullscreenModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.8); z-index: 1000;">
+  <span id="closeModal" style="color: white; font-size: 30px; position: absolute; top: 20px; right: 20px; cursor: pointer; z-index: 2000;">&times;</span>
+  <img id="fullscreenImage" src="" alt="" style="width: 100%; height: auto; margin: 0; display: block; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 1000;">
+</div>
