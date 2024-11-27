@@ -79,7 +79,13 @@
   const folderId = '1_rQYqr1xVrXL_D_ZgkSiEhKMn1MdrPRu';
   const API_KEY = '{{API_KEY}}';
 
-  fetch(`https://www.googleapis.com/drive/v3/files?q='${folderId}'+in+parents&key=${API_KEY}&fields=files(id,name,mimeType)`)
+  fetch(`https://www.googleapis.com/drive/v3/files?q='${folderId}'+in+parents&key=${API_KEY}&fields=files(id,name,mimeType)`, {
+  method: 'GET',
+  headers: {
+    'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin': '*'  // Allow cross-origin requests
+  },
+})
     .then(response => response.json())
     .then(data => {
       const gallery = document.getElementById('gallery');
