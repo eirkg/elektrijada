@@ -94,7 +94,7 @@
           gallery.appendChild(iframe);
         } else if (file.mimeType.startsWith('image/')) {
           const img = document.createElement('img');
-          img.src = `https://drive.google.com/file/d/${file.id}/view`;
+          img.src = `https://lh3.googleusercontent.com/d/${file.id}`;
           img.alt = file.name;
           img.style = "width: 150px; height: auto; margin: 5px;";
           gallery.appendChild(img);
