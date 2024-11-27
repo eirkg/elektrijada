@@ -1,7 +1,6 @@
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https://drive.google.com https://*.googleusercontent.com;">
-
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Електријада КГ</title>
   <link rel="apple-touch-icon" sizes="180x180" href="https://raw.githubusercontent.com/eirkg/elektrijada/refs/heads/main/.slike/apple-touch-icon.png">
@@ -15,7 +14,7 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Електријада КГ">
 
-   
+    
   <!-- Add favicon link -->
   <link rel="icon" href="{{ site.favicon | default: '/.slike/favicon.ico' }}" type="image/x-icon">
 </head>
@@ -75,10 +74,33 @@
 
 <div id="gallery" style="display: flex; flex-wrap: wrap;"></div>
 
+<script>
+  const folderId = '1_rQYqr1xVrXL_D_ZgkSiEhKMn1MdrPRu';
+  const API_KEY = '{{API_KEY}}';
 
-
-<iframe src="https://drive.google.com/embeddedfolderview?id=1_rQYqr1xVrXL_D_ZgkSiEhKMn1MdrPRu#grid" 
-        style="width: 100%; height: 600px; border: 0; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); border-radius: 8px;">
-</iframe>
-
+  fetch(`https://www.googleapis.com/drive/v3/files?q='${folderId}'+in+parents&key=${API_KEY}&fields=files(id,name,mimeType)`)
+    .then(response => response.json())
+    .then(data => {
+      const gallery = document.getElementById('gallery');
+      data.files.forEach(file => {
+        if (file.mimeType.startsWith('video/')) {
+          const iframe = document.createElement('iframe');
+          iframe.src = `https://drive.google.com/file/d/${file.id}/preview`;
+          iframe.width = "300";
+          iframe.height = "200";
+          iframe.style = "margin: 5px; border: none;";
+          iframe.allow = "autoplay; encrypted-media";
+          iframe.allowFullscreen = true;
+          gallery.appendChild(iframe);
+        } else if (file.mimeType.startsWith('image/')) {
+          const img = document.createElement('img');
+          img.src = `https://drive.google.com/file/d/${file.id}/view`;
+          img.alt = file.name;
+          img.style = "width: 150px; height: auto; margin: 5px;";
+          gallery.appendChild(img);
+        }
+      });
+    })
+    .catch(error => console.error('Error fetching files:', error));
+</script>
 
