@@ -21,26 +21,30 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-
       - name: Замена placeholder-а API кључем
         run: |
-          sed -i 's/{{API_KEY}}/${{ secrets.GOOGLE_API_KEY }}/g' index.md
-  
+          echo "Replacing API key"
+          sed -i "s/{{API_KEY}}/${{ secrets.GOOGLE_API_KEY }}/g" index.md
+
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.1' # Specify your Ruby version
+          
       - name: Install Jekyll and theme
         run: |
           gem install jekyll
           gem install jekyll-theme-hacker
+          
       - name: Build with Jekyll
         run: |
           jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
         env:
           JEKYLL_ENV: production
+
       - name: List contents of _site (for debugging)
         run: ls -la _site
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
 
@@ -54,5 +58,6 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
       - name: Show deployment URL
         run: echo "Page URL: ${{ steps.deployment.outputs.page_url }}"
