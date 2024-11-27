@@ -75,9 +75,29 @@
 
 <div id="gallery" style="display: flex; flex-wrap: wrap;"></div>
 
+
+<!-- Fullscreen Overlay Modal -->
+<div id="fullscreenModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.8); z-index: 1000;">
+  <span id="closeModal" style="color: white; font-size: 30px; position: absolute; top: 20px; right: 20px; cursor: pointer;">&times;</span>
+  <img id="fullscreenImage" src="" alt="" style="width: 100%; height: auto; margin: 0; display: block; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+</div>
+
 <script>
   const folderId = '1_rQYqr1xVrXL_D_ZgkSiEhKMn1MdrPRu';
   const API_KEY = '{{API_KEY}}';
+
+  // Open the image in fullscreen overlay
+  function openFullscreenImage(imageSrc) {
+    const modal = document.getElementById('fullscreenModal');
+    const fullscreenImage = document.getElementById('fullscreenImage');
+    modal.style.display = 'block';
+    fullscreenImage.src = imageSrc;
+  }
+
+  // Close the fullscreen overlay
+  document.getElementById('closeModal').onclick = function() {
+    document.getElementById('fullscreenModal').style.display = 'none';
+  };
 
   fetch(`https://www.googleapis.com/drive/v3/files?q='${folderId}'+in+parents&key=${API_KEY}&fields=files(id,name,mimeType)`)
     .then(response => response.json())
@@ -97,19 +117,16 @@
           const img = document.createElement('img');
           img.src = `https://lh3.googleusercontent.com/d/${file.id}`;
           img.alt = file.name;
-          img.style = "width: 150px; height: auto; margin: 5px;";
-          
-          // Create a link to the full-size image
-          const link = document.createElement('a');
-          link.href = `https://drive.google.com/uc?id=${file.id}&export=view`;
-          link.target = '_blank'; // Open in new tab for fullscreen
-          
-          // Append the image to the link
-          link.appendChild(img);
-          gallery.appendChild(link);
+          img.style = "width: 150px; height: auto; margin: 5px; cursor: pointer;";  // cursor pointer for clickable images
+
+          // Add click event to open image in fullscreen
+          img.onclick = function() {
+            openFullscreenImage(`https://drive.google.com/uc?id=${file.id}&export=view`);
+          };
+
+          gallery.appendChild(img);
         }
       });
     })
     .catch(error => console.error('Error fetching files:', error));
 </script>
-
