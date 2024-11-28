@@ -34,7 +34,7 @@
 ## Обавештења 2024-2025
 
 * Званичан сајт [електријаде](https://www.elektrijada.net/).
-* Нема за сад ништа.
+* (Не)Званична [пријава](https://forms.gle/5nuUU3JREufNnwBa7) за Електријаду 2025
 
 <!-- Данило тест комит -->
 
@@ -174,7 +174,7 @@
   }
 
     .slider-container {
-      width: 80%;
+      width: 100%;
       margin: 20px auto;
     }
     .slick-slide {
