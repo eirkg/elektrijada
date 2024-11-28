@@ -83,9 +83,8 @@
   </iframe>
 </div>
 
-
 <div id="gallery-container" style="position: relative; width: 100%; height: 100%; overflow: hidden; background: #000;">
-  <div id="gallery" class="slider" style="display: flex; flex-wrap: nowrap; justify-content: space-between; gap: 10px; width: 100%; height: 100%; box-sizing: border-box;"></div>
+  <div id="gallery" class="slider" style="width: 100%; box-sizing: border-box;"></div>
 </div>
 
 <!-- Fullscreen Overlay Modal -->
@@ -125,6 +124,7 @@
           element.src = `https://drive.google.com/file/d/${file.id}/preview`;
           element.allow = "autoplay; encrypted-media";
           element.style = "width: 100%; height: 300px;";
+          element.allowFullscreen = true;
         } else if (mimeType.startsWith('image/')) {
           element = document.createElement('img');
           element.src = `https://lh3.googleusercontent.com/d/${file.id}`;
@@ -139,7 +139,7 @@
 
         if (element) {
           const slide = document.createElement('div');
-          slide.style = "flex: 0 0 auto;"; // Maintain proper slide structure for slider
+          slide.style = "flex: 0 0 auto; padding: 10px;"; // Maintain proper slide structure for slider
           slide.appendChild(element);
           gallery.appendChild(slide);
         }
@@ -154,6 +154,7 @@
         slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 3000,
+        arrows: true, // Enable arrows
       });
     })
     .catch(error => console.error('Error fetching files:', error));
@@ -161,12 +162,6 @@
 
 <style>
   /* General gallery styles */
-  #gallery {
-    display: flex;
-    flex-wrap: nowrap; /* For slider functionality */
-    gap: 10px;
-  }
-
   #gallery img {
     cursor: pointer;
     object-fit: cover;
@@ -179,9 +174,23 @@
     object-fit: contain;
   }
 
-  /* Slick Slider Styles (Optional, if slick.css is not included) */
-  .slick-dots {
-    bottom: 10px;
+  /* Slick Slider Arrows */
+  .slick-prev,
+  .slick-next {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+
+  .slick-prev:before,
+  .slick-next:before {
+    color: white;
+    font-size: 20px;
   }
 </style>
 
