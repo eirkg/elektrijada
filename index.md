@@ -123,7 +123,7 @@
           element = document.createElement('iframe');
           element.src = `https://drive.google.com/file/d/${file.id}/preview`;
           element.allow = "autoplay; encrypted-media";
-          element.style = "width: 100%; height: 300px;";
+          element.style = "width: 100%; height: auto;";
           element.allowFullscreen = true;
         } else if (mimeType.startsWith('image/')) {
           element = document.createElement('img');
@@ -147,7 +147,7 @@
 
       // Initialize Slick Slider
       $('.slider').slick({
-        dots: true,
+        adaptiveHeight: true,
         infinite: true,
         speed: 500,
         slidesToShow: 1,
