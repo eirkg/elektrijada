@@ -83,8 +83,8 @@
   </iframe>
 </div>
 
-<div id="gallery-container" style="position: relative; width: 100%; height: 100%; overflow: hidden; background: #000;">
-  <div id="gallery" class="slider" style="width: 100%; box-sizing: border-box;"></div>
+<div class="slider-container">
+  <div id="gallery" class="slider"></div>
 </div>
 
 <!-- Fullscreen Overlay Modal -->
@@ -154,7 +154,6 @@
         slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 3000,
-        arrows: true, // Enable arrows
       });
     })
     .catch(error => console.error('Error fetching files:', error));
@@ -174,24 +173,18 @@
     object-fit: contain;
   }
 
-  /* Slick Slider Arrows */
-  .slick-prev,
-  .slick-next {
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    display: flex !important;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-  }
-
-  .slick-prev:before,
-  .slick-next:before {
-    color: white;
-    font-size: 20px;
-  }
+    .slider-container {
+      width: 80%;
+      margin: 20px auto;
+    }
+    .slick-slide {
+      text-align: center;
+    }
+    .slick-slide img, .slick-slide iframe {
+      max-width: 100%;
+      height: auto;
+      margin: 0 auto;
+    }
 </style>
 
 <!-- Include Slick Slider CSS & JS -->
