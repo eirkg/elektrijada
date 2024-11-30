@@ -110,8 +110,8 @@
     document.getElementById('fullscreenModal').style.display = 'none';
   };
 
-  fetch(`https://www.googleapis.com/drive/v3/files?q='${folderId}'+in+parents&key=${API_KEY}&fields=files(id,name,mimeType)`)
-    .then(response => response.json())
+  fetch(`https://www.googleapis.com/drive/v3/files?q='${folderId}'+in+parents&orderBy=name&key=${API_KEY}&fields=files(id,name,mimeType)`)
+  .then(response => response.json())
     .then(data => {
       const gallery = document.getElementById('gallery');
 
