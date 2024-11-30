@@ -110,12 +110,18 @@
     document.getElementById('fullscreenModal').style.display = 'none';
   };
 
-  fetch(`https://www.googleapis.com/drive/v3/files?q='${folderId}'+in+parents&orderBy=name&key=${API_KEY}&fields=files(id,name,mimeType)`)
-  .then(response => response.json())
+  fetch(`https://www.googleapis.com/drive/v3/files?q='${folderId}'+in+parents&key=${API_KEY}&fields=files(id,name,mimeType)`)
+    .then(response => response.json())
     .then(data => {
       const gallery = document.getElementById('gallery');
 
-      data.files.forEach(file => {
+      // Sort files by name (case-insensitive)
+      const sortedFiles = data.files.sort((a, b) => 
+        a.name.toLowerCase().localeCompare(b.name.toLowerCase())
+      );
+
+      // Process and display files
+      sortedFiles.forEach(file => {
         const mimeType = file.mimeType;
         let element;
 
