@@ -214,7 +214,11 @@
     max-height: 420px;
     height: auto;
   }
-
+  @media (max-width: 400px) {
+  #gallery img {
+    max-height: 250px; 
+  }
+}
   /* Fullscreen Modal */
   #fullscreenModal img {
     object-fit: contain;
