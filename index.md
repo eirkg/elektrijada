@@ -42,20 +42,60 @@
 
 * (Не)Званични координатори за науку и спорт:
 
-<table style="width: 400px; text-align: center; border: none;">
+<table class="koordinator-tabela">
   <tr>
-    <td style="padding-right:20px;padding-top:10px">
-      <img src="https://raw.githubusercontent.com/eirkg/elektrijada/refs/heads/main/.slike/koordinator_nauka.png" width="150" />
+    <td class="koordinator-celija">
+      <img class="koordinator-slika" src="https://raw.githubusercontent.com/eirkg/elektrijada/refs/heads/main/.slike/koordinator_nauka.png" />
       <br />
-      <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=lazar@uni.kg.ac.rs">Лазар Илић</a>
+      <a class="koordinator-link" href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=lazar@uni.kg.ac.rs">Лазар Илић</a>
     </td>
-    <td style="padding-left:20px;padding-top: 10px;">
-      <img src="https://raw.githubusercontent.com/eirkg/elektrijada/refs/heads/main/.slike/koordinator_sport.png" width="150" />
+    <td class="koordinator-celija">
+      <img class="koordinator-slika" src="https://raw.githubusercontent.com/eirkg/elektrijada/refs/heads/main/.slike/koordinator_sport.png" />
       <br />
-      <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=radosavljevicdanilo333@gmail.com">Данило Радосављевић</a>
+      <a class="koordinator-link" href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=radosavljevicdanilo333@gmail.com">Данило Радосављевић</a>
     </td>
   </tr>
 </table>
+
+<style>
+  .koordinator-tabela {
+    width: 30%;
+    text-align: center;
+    border: none;
+    margin-left: 10px;
+  }
+
+  .koordinator-celija {
+    padding: 10px 20px;
+  }
+
+  .koordinator-slika {
+    width: 150px;
+    height: auto;
+  }
+
+  .koordinator-link {
+    display: inline-block;
+    width: 100px;
+    text-decoration: none;
+  }
+
+  @media (max-width: 400px) {
+    .koordinator-tabela {
+      width: 100%;
+    }
+
+    .koordinator-celija {
+      display: block;
+      text-align: center;
+      padding: 10px 0;
+    }
+
+    .koordinator-link {
+      width: auto;
+    }
+  }
+</style>
 
 
 
