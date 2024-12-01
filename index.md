@@ -211,7 +211,7 @@
     cursor: pointer;
     object-fit: cover;
     max-width: 100%;
-    max-height: 150px;
+    max-height: 420px;
     height: auto;
   }
 
