@@ -76,7 +76,7 @@
 
   .koordinator-link {
     display: inline-block;
-    width: 100px;
+    width: 153px;
     text-decoration: none;
   }
 
