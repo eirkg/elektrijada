@@ -129,11 +129,11 @@
   <div id="gallery" class="slider"></div>
 </div>
 
-<!-- Fullscreen Overlay Modal -->
-<div id="fullscreenModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.8); z-index: 1000;">
-  <span id="closeModal" style="color: white; font-size: 30px; position: absolute; top: 20px; right: 20px; cursor: pointer; z-index: 2000;">&times;</span>
-  <img id="fullscreenImage" src="" alt="" style="width: 100%; height: auto; margin: 0; display: block; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 1000;">
-</div>
+
+
+
+
+
 
 
 <footer class="footer">
@@ -169,144 +169,6 @@
   </footer>
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-  
-
-<script>
-  const folderId = '1_rQYqr1xVrXL_D_ZgkSiEhKMn1MdrPRu';
-  const API_KEY = '{{API_KEY}}';
-
-  // Open the image in fullscreen overlay
-  function openFullscreenImage(imageSrc) {
-    const modal = document.getElementById('fullscreenModal');
-    const fullscreenImage = document.getElementById('fullscreenImage');
-    modal.style.display = 'block';
-    fullscreenImage.src = imageSrc;
-  }
-
-  // Close the fullscreen overlay
-  document.getElementById('closeModal').onclick = function () {
-    document.getElementById('fullscreenModal').style.display = 'none';
-  };
-
-  fetch(`https://www.googleapis.com/drive/v3/files?q='${folderId}'+in+parents&key=${API_KEY}&fields=files(id,name,mimeType)`)
-    .then(response => response.json())
-    .then(data => {
-      const gallery = document.getElementById('gallery');
-
-      // Sort files by name (case-insensitive)
-      const sortedFiles = data.files.sort((a, b) => 
-        a.name.toLowerCase().localeCompare(b.name.toLowerCase())
-      );
-
-      // Process and display files
-      sortedFiles.forEach(file => {
-        const mimeType = file.mimeType;
-        let element;
-
-        if (mimeType.startsWith('video/')) {
-          element = document.createElement('iframe');
-          element.src = `https://drive.google.com/file/d/${file.id}/preview`;
-          element.allow = "autoplay; encrypted-media";
-          element.style = "width: 100%; height: auto;";
-          element.allowFullscreen = true;
-        } else if (mimeType.startsWith('image/')) {
-          element = document.createElement('img');
-          element.src = `https://lh3.googleusercontent.com/d/${file.id}`;
-          element.alt = file.name;
-          element.style = "cursor: pointer; object-fit: cover; max-width: 100%; height: auto;";
-
-          // Add click event for fullscreen
-          element.onclick = function () {
-            openFullscreenImage(element.src);
-          };
-        }
-
-        if (element) {
-          const slide = document.createElement('div');
-          slide.style = "flex: 0 0 auto; padding: 10px;"; // Maintain proper slide structure for slider
-          slide.appendChild(element);
-          gallery.appendChild(slide);
-        }
-      });
-
-      // Initialize Slick Slider
-      $('.slider').slick({
-        adaptiveHeight: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 3000,
-      });
-    })
-    .catch(error => console.error('Error fetching files:', error));
-</script>
-
-<style>
-  /* General gallery styles */
-  #gallery img {
-    cursor: pointer;
-    object-fit: cover;
-    max-width: 100%;
-    max-height: 420px;
-    height: auto;
-  }
-  @media (max-width: 400px) {
-  #gallery img {
-    max-height: 250px; 
-  }
-}
-  /* Fullscreen Modal */
-  #fullscreenModal img {
-    object-fit: contain;
-  }
-
-    .slider-container {
-      width: 90%;
-      margin: 20px auto;
-    }
-    .slick-slide {
-      text-align: center;
-    }
-    .slick-slide img, .slick-slide iframe {
-      max-width: 100%;
-      height: auto;
-      margin: 0 auto;
-    }
-
-    .slick-prev:before, 
-    .slick-next:before {
-  color: #00FF00; /* Change arrow color */
-}
-
-</style>
-
-<!-- Include Slick Slider CSS & JS -->
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.css" />
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick-theme.css" />
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.min.js"></script>
-
-
-
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   
   <style>
   @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
@@ -443,3 +305,145 @@ body {
 }
 
   </style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Fullscreen Overlay Modal -->
+<div id="fullscreenModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.8); z-index: 1000;">
+  <span id="closeModal" style="color: white; font-size: 30px; position: absolute; top: 20px; right: 20px; cursor: pointer; z-index: 2000;">&times;</span>
+  <img id="fullscreenImage" src="" alt="" style="width: 100%; height: auto; margin: 0; display: block; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 1000;">
+</div>
+
+<script>
+  const folderId = '1_rQYqr1xVrXL_D_ZgkSiEhKMn1MdrPRu';
+  const API_KEY = '{{API_KEY}}';
+
+  // Open the image in fullscreen overlay
+  function openFullscreenImage(imageSrc) {
+    const modal = document.getElementById('fullscreenModal');
+    const fullscreenImage = document.getElementById('fullscreenImage');
+    modal.style.display = 'block';
+    fullscreenImage.src = imageSrc;
+  }
+
+  // Close the fullscreen overlay
+  document.getElementById('closeModal').onclick = function () {
+    document.getElementById('fullscreenModal').style.display = 'none';
+  };
+
+  fetch(`https://www.googleapis.com/drive/v3/files?q='${folderId}'+in+parents&key=${API_KEY}&fields=files(id,name,mimeType)`)
+    .then(response => response.json())
+    .then(data => {
+      const gallery = document.getElementById('gallery');
+
+      // Sort files by name (case-insensitive)
+      const sortedFiles = data.files.sort((a, b) => 
+        a.name.toLowerCase().localeCompare(b.name.toLowerCase())
+      );
+
+      // Process and display files
+      sortedFiles.forEach(file => {
+        const mimeType = file.mimeType;
+        let element;
+
+        if (mimeType.startsWith('video/')) {
+          element = document.createElement('iframe');
+          element.src = `https://drive.google.com/file/d/${file.id}/preview`;
+          element.allow = "autoplay; encrypted-media";
+          element.style = "width: 100%; height: auto;";
+          element.allowFullscreen = true;
+        } else if (mimeType.startsWith('image/')) {
+          element = document.createElement('img');
+          element.src = `https://lh3.googleusercontent.com/d/${file.id}`;
+          element.alt = file.name;
+          element.style = "cursor: pointer; object-fit: cover; max-width: 100%; height: auto;";
+
+          // Add click event for fullscreen
+          element.onclick = function () {
+            openFullscreenImage(element.src);
+          };
+        }
+
+        if (element) {
+          const slide = document.createElement('div');
+          slide.style = "flex: 0 0 auto; padding: 10px;"; // Maintain proper slide structure for slider
+          slide.appendChild(element);
+          gallery.appendChild(slide);
+        }
+      });
+
+      // Initialize Slick Slider
+      $('.slider').slick({
+        adaptiveHeight: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 3000,
+      });
+    })
+    .catch(error => console.error('Error fetching files:', error));
+</script>
+
+<style>
+  /* General gallery styles */
+  #gallery img {
+    cursor: pointer;
+    object-fit: cover;
+    max-width: 100%;
+    max-height: 420px;
+    height: auto;
+  }
+  @media (max-width: 400px) {
+  #gallery img {
+    max-height: 250px; 
+  }
+}
+  /* Fullscreen Modal */
+  #fullscreenModal img {
+    object-fit: contain;
+  }
+
+    .slider-container {
+      width: 90%;
+      margin: 20px auto;
+    }
+    .slick-slide {
+      text-align: center;
+    }
+    .slick-slide img, .slick-slide iframe {
+      max-width: 100%;
+      height: auto;
+      margin: 0 auto;
+    }
+
+    .slick-prev:before, 
+    .slick-next:before {
+  color: #00FF00; /* Change arrow color */
+}
+
+</style>
+
+<!-- Include Slick Slider CSS & JS -->
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.css" />
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick-theme.css" />
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.min.js"></script>
+
+
