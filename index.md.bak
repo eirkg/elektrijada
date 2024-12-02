@@ -315,18 +315,18 @@
   
   
   <style>
-  
-  
-  .footer {
+.footer {
   position: relative;
-  width: 100%;
-  background: #3586ff;
-  min-height: 100px;
+  width: 100%; /* Puna širina ekrana */
+  background: #28a745; /* Zelena boja */
+  min-height: 100vh; /* Puna visina ekrana */
   padding: 20px 50px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  box-sizing: border-box; /* Osigurava da padding ne utiče na ukupnu širinu */
+  margin: 0; /* Uklanja bilo kakve margine koje mogu smanjiti širinu */
 }
 
 .social-icon,
@@ -420,7 +420,7 @@
     background-position-x: 1000px;
   }
   100% {
-    background-positon-x: 0px;
+    background-position-x: 0px;
   }
 }
 
@@ -429,9 +429,7 @@
     background-position-x: -1000px;
   }
   100% {
-    background-positon-x: 0px;
+    background-position-x: 0px;
   }
 }
-  
-  
-  </style>
+</style>
