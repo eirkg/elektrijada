@@ -31,6 +31,8 @@
 
 </head>
 
+
+<body>
 ## Обавештења 2024-2025
 
 * Званичан сајт [електријаде](https://www.elektrijada.net/).
@@ -274,7 +276,7 @@
 
 
 
-
+</body>
 
 
 <footer class="footer">
